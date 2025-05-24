@@ -43,7 +43,7 @@ public class ScheduleService {
     public ScheduleResponseDTO getSchedule(Long id) {
         return scheduleRepository.findById(id)
                 .map(this::toDTO)
-                .orElseThrow(() -> new RuntimeException("일정이 존재하지 않습니다."));
+                .orElseThrow(() -> new UserException("일정이 존재하지 않습니다."));
     }
 
     public ScheduleResponseDTO updateSchedule(Long id, String title, String author, String password) {
